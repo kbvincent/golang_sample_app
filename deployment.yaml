@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: golang-sample-app
+  name: golang-sample-app
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: golang-sample-app
+  template:
+    metadata:
+      labels:
+        app: golang-sample-app
+    spec:
+      containers:
+      - image: gcr.io/kvincent-gcs-gce-challenge-lab/golang_sample_app@sha256:2549aa3622ad74a564947d43658c5b29f16d4f6519c4d1b8eba733cda940015e
+        imagePullPolicy: IfNotPresent
+        name: golang-sample-app-sha256-1
+
